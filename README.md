@@ -1,6 +1,21 @@
 
 # DATA2410 - Oblig 1
 
+### Achieved goals behind this assignment.
+
+In this assignment, we have:
+
+- Explored the concept of Fairness Metric in computer networks and built our own program to calculate Jains Fairness Index.
+
+- Implemented Python programs for tasks involving JFI calculation from throughput values and optional arguments handling.
+
+- Utilized the ping utility to measure round-trip times to different hosts and analyzed the results.
+
+- Conducted a traceroute to a remote host to understand the path discovery process.
+
+- Prepared files with explanations for ping and traceroute results as part of the assignment submission requirements.
+
+$~$
 #### \#  **1 - Jains Fairness Index**
 
 This part involved creating a Python program for calculating the Jain's Fairness Index (JFI). Initially, separate functions were created for each subtask. However, to optimize the program, the argparse module was used, enabling both list and file inputs in one script.
