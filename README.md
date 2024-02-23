@@ -5,7 +5,7 @@
 
 In this assignment, we have:
 
-- Explored the concept of Fairness Metric in computer networks and built our own program to calculate Jains Fairness Index.
+- Explored the concept of Fairness Metric in computer networks and calculated Jains Fairness Index.
 
 - Implemented Python programs for tasks involving JFI calculation from throughput values and optional arguments handling.
 
@@ -14,6 +14,8 @@ In this assignment, we have:
 - Conducted a traceroute to a remote host to understand the path discovery process.
 
 - Prepared files with explanations for ping and traceroute results as part of the assignment submission requirements.
+
+<br>
 
 $~$
 #### \#  **1 - Jains Fairness Index**
