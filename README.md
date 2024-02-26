@@ -17,11 +17,11 @@ In this assignment, we have:
 
 
 $~$
-#### \#  **1 - Jains Fairness Index**
+#### \#  **1 - Jains Fairness Index (src/jains.py)**
 
 This part involved creating a Python program for calculating the Jain's Fairness Index (JFI). Initially, separate functions were created for each subtask. However, to optimize the program, the argparse module was used, enabling both list and file inputs in one script.
 
-_1.1 - Task 1_
+_1.1 - Task 1_ 
 
 
 In the first task, we had to build a simple Jain's Fairness Index calculating function. This function takes the arguments from the terminal, calcuates the JFI and returns it, using this formula:
@@ -57,7 +57,7 @@ python3 jains.py -f ./throughput_values.txt
 Jains Fairness index is: 0.586
 ```
 $~$
-#### \# **Task 2 - Argparse module**
+#### \# **Task 2 - Argparse module (src/args.py)**
 _2.1 - Task 3_
 
 This part involved creating a Python program that operates in either server (-s) or client (-c) mode. The program accepts host IP and port as optional arguments and ensures only one mode is chosen. In server mode, it listens for connections and echoes received data. In client mode, it sends a message to the server and receives a response. Default values are used if no IP or port is specified. With inavlid inputs, error messages are returned.
@@ -73,7 +73,7 @@ python3 args.py -s -i 127.0.1.1 -p 22000
 python3 args.py -c -m "A message to the server"
 ```
 $~$
-#### \# **3 - Measuring round-trip time with Ping**
+#### \# **3 - Measuring round-trip time with Ping (./ping-s369517.txt)**
 _3.1 - Task 4_
 
 In this part, we performed network ping tests to various hosts, analyzed the round-trip times (RTT), and to explain the differences in minimum RTT, we can talk about many aspects. 
@@ -81,7 +81,7 @@ In this part, we performed network ping tests to various hosts, analyzed the rou
 First of all **geographical distance**. During our analysis of round-trip time (RTT), we observed that the distance between the client and the server hosting the specific IP address significantly increases response times. For example, when accessing a local website like _oslomet.no_, the average response time was remarkably low, around 12 milliseconds. Meanwhile, when connecting to a distant server, such as _sydney.edu.au_ in Australia, the average response time was up to approximately 270 milliseconds, and this was also observed in the other tests, where the more distant a server is located, the longer it takes for its response to be recieved. Distance isn't the only determinant of online responsiveness. Other contributing factors include network queuing, the type of network, and packet loss. Together, variables shape the speed at which websites interact with users.
 
 $~$
-#### \# **4 - Internet Routes with traceroute / tracert**
+#### \# **4 - Internet Routes with traceroute / tracert (./traceroute-s369517.txt)**
 
 _4.1 - Task 5_
 
