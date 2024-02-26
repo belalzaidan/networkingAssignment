@@ -15,7 +15,6 @@ In this assignment, we have:
 
 - Prepared files with explanations for ping and traceroute results as part of the assignment submission requirements.
 
-<br>
 
 $~$
 #### \#  **1 - Jains Fairness Index**

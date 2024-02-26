@@ -57,11 +57,15 @@ try:
     else:
         # converting the string list into a float list which makes it possible for the
         # compiler to use the function on the values and return the Jain's fairness index
-        values = [float(x) for x in ast.literal_eval(args.list)] 
+        values = [float(x) for x in ast.literal_eval(args.list)]
 except Exception as e:
     # iIn case the values are not valid, throw the exception and print what type of exceptions is it
-    print(f"Your input is not valid: {e}") 
+    print(f"Your input is not valid: {e}\nHint: Use -f/--file for values stored in a file,",
+          "or consider the list is in this format [x,x,..,x] with float values.") 
     sys.exit()
 
 # Calculate the JF index and print it 
-print(f"Jains Fairness index is: {calculateJains(values):.3f}")
+try:
+    print(f"Jains Fairness index is: {calculateJains(values):.3f}")
+except:
+    print("You have not entered any values")

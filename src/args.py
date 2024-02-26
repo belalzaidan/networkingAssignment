@@ -2,36 +2,30 @@ import sys
 import argparse
 import socket
 
+
 def validate_ip(ip):
     '''
         This function takes in an IP and returns a boolean
         wheather the IP is valid or not
-
     '''
     parts = ip.split('.')
-    
     if len(parts) != 4: return False
-    
     for part in parts:
-        if not part.isdigit() or not 0 <= int(part) <= 255:
+        try:
+            if not 0 <= int(part) <= 255 : return False
+        except ValueError:
             return False
-    return True 
+    return True
 
 def validate_port(port):
     '''
         This function takes in an integer, and returns a boolean
         wheather it's valid as a port number or not
     '''
-    if port.isdigit():
-        try:
-            port_num = int(port)
-            if 1024 <= port_num <= 65553:
-                return True
-            else:
-                return False
-        except:
-            return False
-    else: return False 
+    try: return 1024 <= port <= 65553 
+    except:
+        print("An error has occurd while validation")
+        return False
 
 def data_exchange(args, mode):
     '''
@@ -43,14 +37,14 @@ def data_exchange(args, mode):
         program is intended to be run. it holds the ip and port if they are
         specified by the user, otherwise a default value for the ip and the port
         are set to be set.
-
     '''
     # Setting default values for host and port if not provided
     if args.host:
         if validate_ip(args.host):
             host = args.host 
         else: 
-            print("Your ip address must be in this format: x.x.x.x")
+            print("Your ip address must be in this format: x.x.x.x\n",
+                  "Only numbers and not higher than 255")
             sys.exit()
     else: host = '127.0.0.1'
     
@@ -91,6 +85,7 @@ def data_exchange(args, mode):
         c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Connecting to server
         c.connect((host, port))
+        print(f"Client is connected to ip: {host} and port: {port}")
         # Sending data to server
         c.sendall(message.encode())
         # Receiving response from server
@@ -101,8 +96,8 @@ def data_exchange(args, mode):
 host = argparse.ArgumentParser(description='TCP data exchange')
 host.add_argument('-i', '--host', help='Host IP')
 host.add_argument('-p', '--port', type=int, help='Port')
-host.add_argument('-s', '--server', '-server',  action='store_true', help='Run in server mode')
-host.add_argument('-c', '--client', '-client',  action='store_true', help='Run in client mode')
+host.add_argument('-s', '--server', action='store_true', help='Run in server mode')
+host.add_argument('-c', '--client', action='store_true', help='Run in client mode')
 host.add_argument('-m', '--message', help='Message to send in client mode')
 args = host.parse_args()
 
